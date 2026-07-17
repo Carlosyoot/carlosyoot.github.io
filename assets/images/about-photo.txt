@@ -1,0 +1,8 @@
+Substitua criando este arquivo:
+assets/images/about-photo.jpg
+
+Uso no site:
+Foto da secao "Sobre Mim".
+
+Recomendacao:
+Imagem vertical, proporcao aproximada 4:5, com boa luz e fundo simples.

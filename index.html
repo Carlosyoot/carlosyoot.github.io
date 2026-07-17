@@ -3,22 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Carlos Yoot | Video Editor Portfolio</title>
+<title>Carlos Yoot | Editor de Vídeo</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
 
   :root {
-    --bg: #0a0a0f;
-    --surface: #13131a;
-    --surface2: #1a1a24;
-    --border: #252530;
-    --text: #e4e4ec;
-    --text2: #9494a4;
-    --accent: #7c3aed;
-    --accent2: #a78bfa;
-    --accent-glow: rgba(124, 58, 237, 0.25);
-    --radius: 14px;
-    --radius-sm: 8px;
+    --bg: #08080b;
+    --surface: #0f0f13;
+    --surface2: #16161c;
+    --border: #1e1e26;
+    --border-hover: #2a2a36;
+    --text: #e8e8ed;
+    --text2: #6b6b78;
+    --text3: #8c8c9a;
+    --accent: #c0392b;
+    --accent-dim: rgba(192, 57, 43, 0.15);
+    --accent-text: #e74c3c;
+    --radius: 12px;
+    --radius-sm: 6px;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -33,163 +35,338 @@
     overflow-x: hidden;
   }
 
-  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
-  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 
   /* ── Nav ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(10, 10, 15, 0.8);
+    background: rgba(8, 8, 11, 0.85);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
   }
   .nav-inner {
-    max-width: 1200px; margin: 0 auto;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 24px; height: 64px;
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: center;
+    padding: 0 24px; height: 60px;
   }
-  .logo { font-weight: 800; font-size: 1.25rem; letter-spacing: -0.03em; }
-  .logo span { color: var(--accent2); }
-  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
   .nav-links a {
     color: var(--text2); text-decoration: none;
-    font-size: 0.875rem; font-weight: 500;
+    font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em;
     transition: color 0.2s;
   }
   .nav-links a:hover { color: var(--text); }
 
   /* ── Sections ── */
-  section { padding: 100px 24px; }
-  .container { max-width: 1100px; margin: 0 auto; }
+  section { padding: 72px 24px; }
+  .container { max-width: 1050px; margin: 0 auto; }
 
   .section-label {
-    display: inline-block; font-size: 0.75rem; font-weight: 600;
-    text-transform: uppercase; letter-spacing: 0.1em;
-    color: var(--accent2); margin-bottom: 12px;
+    display: inline-block; font-size: 0.7rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--accent-text); margin-bottom: 10px;
   }
   .section-title {
-    font-size: clamp(2rem, 4vw, 3rem); font-weight: 800;
-    letter-spacing: -0.03em; margin-bottom: 16px;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800;
+    letter-spacing: -0.03em; margin-bottom: 12px; color: var(--text);
   }
-  .section-subtitle { color: var(--text2); font-size: 1.1rem; max-width: 560px; margin-bottom: 48px; }
+  .section-subtitle { color: var(--text2); font-size: 0.95rem; max-width: 520px; margin-bottom: 36px; }
+
+  /* ── Divider ── */
+  .divider { width: 40px; height: 2px; background: var(--accent); margin-bottom: 32px; opacity: 0.5; }
 
   /* ── Hero ── */
   .hero {
-    min-height: 100vh; display: flex; align-items: center;
-    padding-top: 64px; position: relative; overflow: hidden;
+    height: clamp(420px, 50vh, 560px); display: flex; align-items: stretch;
+    padding: 60px 24px 0; position: relative; overflow: hidden;
   }
   .hero::before {
-    content: ''; position: absolute; top: -50%; left: -50%;
-    width: 200%; height: 200%;
-    background: radial-gradient(circle at 30% 40%, var(--accent-glow) 0%, transparent 50%),
-                radial-gradient(circle at 70% 60%, rgba(167, 139, 250, 0.12) 0%, transparent 50%);
+    content: ''; position: absolute; top: -60%; left: -40%;
+    width: 180%; height: 180%;
+    background: radial-gradient(circle at 50% 50%, rgba(40,40,50,0.5) 0%, transparent 60%),
+                radial-gradient(circle at 80% 30%, var(--accent-dim) 0%, transparent 50%);
     pointer-events: none;
   }
-  .hero .container { position: relative; z-index: 1; }
-  .hero-tag { display: flex; align-items: center; gap: 8px; margin-bottom: 24px; }
-  .hero-tag .dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; animation: pulse-dot 2s infinite; }
-  .hero-tag span { font-size: 0.875rem; color: var(--text2); }
-  @keyframes pulse-dot { 0%,100%{opacity:1} 50%{opacity:0.4} }
-
+  .hero .container {
+    position: relative; z-index: 1;
+    height: 100%;
+    display: flex; flex-direction: column; justify-content: space-between;
+    padding: 42px 0 24px;
+  }
   .hero h1 {
-    font-size: clamp(3rem, 7vw, 5rem); font-weight: 900;
-    letter-spacing: -0.04em; line-height: 1.05; margin-bottom: 20px;
+    font-size: clamp(2.8rem, 6.5vw, 4.5rem); font-weight: 900;
+    letter-spacing: -0.04em; line-height: 1.07; margin-bottom: 16px;
+    color: var(--text);
   }
   .hero h1 em {
-    font-style: normal;
-    background: linear-gradient(135deg, var(--accent2), #c084fc, #e879f9);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-style: normal; color: var(--accent-text);
   }
-  .hero p { color: var(--text2); font-size: 1.15rem; max-width: 500px; margin-bottom: 36px; }
-  .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+  .hero p { color: var(--text2); font-size: 1rem; max-width: 480px; margin-bottom: 26px; }
+  .hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
 
   .btn {
     display: inline-flex; align-items: center; gap: 8px;
-    padding: 12px 24px; border-radius: var(--radius-sm);
-    font-size: 0.9rem; font-weight: 600; text-decoration: none;
-    transition: all 0.25s; cursor: pointer; border: none;
+    min-height: 42px; padding: 11px 22px; border-radius: var(--radius-sm);
+    font-size: 0.8rem; font-weight: 600; text-decoration: none;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    transition: all 0.2s; cursor: pointer; border: none;
   }
   .btn-primary { background: var(--accent); color: #fff; }
-  .btn-primary:hover { background: #6d28d9; transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+  .btn-primary:hover { background: #a93226; transform: translateY(-1px); }
   .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
-  .btn-outline:hover { border-color: var(--accent); background: var(--surface2); }
+  .btn-outline:hover { border-color: var(--text3); background: var(--surface2); }
 
   /* ── Stats ── */
-  .stats { display: flex; gap: 48px; margin-top: 56px; }
-  .stat { }
-  .stat-num { font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; }
-  .stat-label { font-size: 0.8rem; color: var(--text2); margin-top: 4px; }
+  .stats {
+    display: flex; gap: 42px; margin-top: auto; padding-top: 14px;
+    border-top: 1px solid var(--border); width: 100%;
+  }
+  .stat-num { font-size: 1.8rem; font-weight: 800; letter-spacing: -0.03em; font-family: 'JetBrains Mono', monospace; }
+  .stat-label { font-size: 0.7rem; color: var(--text2); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.06em; }
 
-  /* ── Videos / Portfolio ── */
-  .video-grid {
+  /* ── Portfolio Mosaic ── */
+  .portfolio-mosaic {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-auto-flow: dense;
+    gap: 16px;
+    align-items: start;
   }
   .video-card {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius); overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.3s, transform 0.3s;
   }
-  .video-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-  }
-  .video-thumb {
-    position: relative; aspect-ratio: 16/9; background: var(--surface2);
+  .video-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+  .video-card.size-xl { grid-column: span 12; height: 560px; }
+  .video-card.size-large { grid-column: span 6; height: 448px; }
+  .video-card.size-medium { grid-column: span 4; height: 280px; }
+  .video-card.size-small { grid-column: span 3; height: 240px; }
+
+  .video-media {
+    position: relative; background: #0a0a0f;
     display: flex; align-items: center; justify-content: center;
     overflow: hidden; cursor: pointer;
+    width: 100%; height: calc(100% - 170px); padding: 0; border: 0; color: inherit;
   }
-  .video-thumb iframe {
-    position: absolute; inset: 0; width: 100%; height: 100%; border: none;
+  .video-media video,
+  .video-media iframe {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    border: none; object-fit: cover;
   }
-  .video-thumb .placeholder {
-    display: flex; flex-direction: column; align-items: center; gap: 12px; color: var(--text2);
+  .video-media .play-overlay {
+    position: absolute; inset: 0; z-index: 2;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(0,0,0,0.18); transition: opacity 0.3s;
+    opacity: 1;
   }
-  .video-thumb .play-icon {
-    width: 56px; height: 56px; border-radius: 50%;
+  .video-media.playing .play-overlay { opacity: 0; pointer-events: none; }
+  .video-media .play-icon {
+    width: 48px; height: 48px; border-radius: 50%;
     background: var(--accent); display: flex; align-items: center; justify-content: center;
-    transition: transform 0.3s;
+    transition: transform 0.2s;
   }
-  .video-thumb:hover .play-icon { transform: scale(1.1); }
-  .video-thumb .play-icon::after {
-    content: ''; display: block; width: 0; height: 0;
-    border-left: 14px solid #fff;
-    border-top: 9px solid transparent;
-    border-bottom: 9px solid transparent;
-    margin-left: 3px;
+  .video-media:hover .play-icon { transform: scale(1.08); }
+  .video-media .play-icon::after {
+    content: ''; display: block;
+    width: 0; height: 0;
+    border-left: 12px solid #fff;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    margin-left: 2px;
   }
-  .video-info { padding: 20px; }
-  .video-info h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 6px; }
-  .video-info p { font-size: 0.85rem; color: var(--text2); }
-  .video-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+
+  .video-info {
+    height: 170px; padding: 16px 18px 18px;
+    display: flex; flex-direction: column; gap: 2px;
+    background: var(--surface);
+    overflow: hidden;
+  }
+  .video-info h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 5px; }
+  .video-meta {
+    display: flex; align-items: center; gap: 12px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text2);
+    margin-bottom: 8px;
+  }
+  .video-original {
+    position: absolute; top: 12px; right: 12px; z-index: 4;
+    width: 34px; height: 34px; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    color: var(--text3); text-decoration: none;
+    background: rgba(8,8,11,0.78); border: 1px solid rgba(255,255,255,0.12);
+    transition: color 0.2s, border-color 0.2s, transform 0.2s;
+  }
+  .video-original:hover { color: var(--accent-text); border-color: var(--accent); transform: scale(1.04); }
+  .video-original svg {
+    width: 16px; height: 16px; stroke: currentColor; stroke-width: 2;
+    fill: none; stroke-linecap: round; stroke-linejoin: round;
+  }
+  .video-info p {
+    font-size: 0.78rem; color: var(--text2); line-height: 1.5; max-width: 56ch;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .video-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto; padding-top: 8px; }
   .video-tags span {
-    font-size: 0.7rem; padding: 4px 10px;
-    background: var(--surface2); border-radius: 20px;
-    color: var(--text2); font-weight: 500;
+    font-size: 0.65rem; padding: 3px 8px;
+    background: var(--surface2); border-radius: 2px;
+    color: var(--text2); font-weight: 500; text-transform: uppercase; letter-spacing: 0.04em;
   }
+  /* ── Testimonials ── */
+  #testimonials {
+    background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+  }
+  .testimonial-card {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 30px 24px 24px;
+    transition: border-color 0.3s;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+  }
+  .testimonial-card:hover { border-color: var(--border-hover); }
+  .testimonial-card.is-hidden { display: none; }
+  .testimonial-card .quote {
+    font-size: 0.88rem; color: var(--text); line-height: 1.72; margin-bottom: 20px;
+    font-style: italic;
+  }
+  .testimonial-card .quote::before { content: '\201C'; color: var(--accent-text); font-size: 1.1rem; margin-right: 4px; }
+  .testimonial-card .quote::after { content: '\201D'; color: var(--accent-text); font-size: 1.1rem; margin-left: 4px; }
+  .testimonial-card .author {
+    display: flex; align-items: center; gap: 10px;
+    margin-top: auto;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+  }
+  .testimonial-card .author-avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--border); display: flex; align-items: center; justify-content: center;
+    font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--text2);
+  }
+  .testimonial-card .author-info { flex: 1; min-width: 0; }
+  .testimonial-card .author-info .name { font-size: 0.8rem; font-weight: 600; }
+  .testimonial-card .author-info .role { font-size: 0.7rem; color: var(--text2); }
+  .author-link {
+    width: 34px; height: 34px; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    color: var(--text3); text-decoration: none;
+    background: var(--surface); border: 1px solid var(--border);
+    transition: color 0.2s, border-color 0.2s, transform 0.2s;
+  }
+  .author-link:hover { color: var(--accent-text); border-color: var(--accent); transform: translateX(2px); }
+  .author-link svg {
+    width: 16px; height: 16px; stroke: currentColor; stroke-width: 2;
+    fill: none; stroke-linecap: round; stroke-linejoin: round;
+  }
+  .testimonial-controls {
+    display: flex; align-items: center; justify-content: flex-end; gap: 10px;
+    margin-top: 18px;
+  }
+  .testimonial-page {
+    min-width: 52px; text-align: center;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--text2);
+  }
+  .testimonial-nav {
+    width: 38px; height: 38px; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    color: var(--text3); background: var(--surface2); border: 1px solid var(--border);
+    cursor: pointer; transition: color 0.2s, border-color 0.2s, transform 0.2s, opacity 0.2s;
+  }
+  .testimonial-nav:hover:not(:disabled) {
+    color: var(--accent-text); border-color: var(--accent); transform: translateY(-1px);
+  }
+  .testimonial-nav:disabled { opacity: 0.35; cursor: not-allowed; }
+  .testimonial-nav svg {
+    width: 17px; height: 17px; stroke: currentColor; stroke-width: 2;
+    fill: none; stroke-linecap: round; stroke-linejoin: round;
+  }
+
+  /* ── Services ── */
+  #services { padding-top: 0; }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 14px;
+  }
+  .service-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 28px 22px 24px;
+    transition: border-color 0.3s, transform 0.3s, background 0.3s;
+    min-height: 188px;
+    display: flex; flex-direction: column;
+    position: relative; overflow: hidden;
+  }
+  .service-card::before {
+    content: ''; position: absolute; top: 0; left: 22px; right: 22px;
+    height: 2px; background: var(--accent); opacity: 0.65;
+  }
+  .service-card:hover {
+    border-color: var(--border-hover);
+    background: linear-gradient(180deg, var(--surface2), var(--surface));
+    transform: translateY(-2px);
+  }
+  .service-card .service-icon {
+    font-size: 1.25rem; margin-bottom: 18px; width: 46px; height: 46px;
+    background: var(--surface2); border-radius: var(--radius-sm);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--accent-text);
+  }
+  .service-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
+  .service-card p { font-size: 0.76rem; color: var(--text2); line-height: 1.6; max-width: 34ch; }
 
   /* ── Skills ── */
   .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
   }
   .skill-card {
     background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 28px 24px;
-    transition: border-color 0.3s, transform 0.3s;
+    border-radius: var(--radius); padding: 24px 20px;
+    transition: border-color 0.3s;
   }
-  .skill-card:hover { border-color: var(--accent); transform: translateY(-3px); }
-  .skill-icon {
-    font-size: 1.8rem; margin-bottom: 16px; width: 48px; height: 48px;
-    background: var(--surface2); border-radius: var(--radius-sm);
+  .skill-card:hover { border-color: var(--border-hover); }
+  .skill-head {
+    display: flex; align-items: center; gap: 14px; margin-bottom: 14px;
+  }
+  .tool-logo {
+    width: 48px; height: 48px;
     display: flex; align-items: center; justify-content: center;
   }
-  .skill-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 6px; }
-  .skill-card p { font-size: 0.825rem; color: var(--text2); line-height: 1.5; }
+  .tool-logo img { width: 100%; height: 100%; display: block; }
+  .skill-card h3 { font-size: 0.9rem; font-weight: 600; margin-bottom: 4px; }
+  .skill-card p { font-size: 0.75rem; color: var(--text2); line-height: 1.5; }
+
+  .tools-marquee {
+    overflow: hidden; user-select: none;
+    padding: 14px 0 2px; margin-top: 34px;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+  .tools-track {
+    display: flex; gap: 34px; width: max-content;
+    animation: tools-scroll 18s linear infinite;
+  }
+  .tools-track span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem; font-weight: 600; color: var(--text3);
+    white-space: nowrap; text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .tools-track span:nth-child(4n + 1) { color: var(--accent-text); }
+  @keyframes tools-scroll {
+    to { transform: translateX(-50%); }
+  }
 
   /* ── About ── */
   .about-grid {
@@ -197,101 +374,78 @@
     grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
   }
   .about-image {
-    aspect-ratio: 1; background: var(--surface);
+    aspect-ratio: 4 / 5; background: var(--surface);
     border: 1px solid var(--border); border-radius: var(--radius);
     position: relative; overflow: hidden;
   }
-  .about-image::after {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(135deg, var(--accent-glow), transparent);
+  .about-image img {
+    width: 100%; height: 100%; display: block; object-fit: cover;
   }
+  .about-image img[src$=".txt"] { display: none; }
   .about-image .img-text {
-    position: absolute; inset: 0; z-index: 1;
+    position: absolute; inset: 0;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
   }
   .about-image .img-text .avatar {
-    width: 100px; height: 100px; border-radius: 50%;
+    width: 96px; height: 96px; border-radius: 50%;
     background: var(--accent); display: flex; align-items: center; justify-content: center;
-    font-size: 2.5rem; font-weight: 800; color:#fff; margin-bottom: 16px;
+    font-size: 2rem; font-weight: 800; color:#fff; margin-bottom: 14px;
   }
-  .about-content h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; }
-  .about-content p { color: var(--text2); margin-bottom: 16px; font-size: 0.95rem; }
-  .about-links { display: flex; gap: 12px; margin-top: 24px; }
-
-  /* ── Services / What I Do ── */
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px; margin-top: 48px;
-  }
-  .service-card {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 32px 24px; text-align: center;
-    transition: border-color 0.3s;
-  }
-  .service-card:hover { border-color: var(--accent); }
-  .service-card .icon {
-    width: 56px; height: 56px; margin: 0 auto 20px;
-    background: var(--surface2); border-radius: var(--radius-sm);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.5rem;
-  }
-  .service-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
-  .service-card p { font-size: 0.825rem; color: var(--text2); }
-
-  /* ── Tools ── */
-  .tools-marquee {
-    overflow: hidden; user-select: none;
-    padding: 12px 0; margin-top: 40px;
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-  }
-  .tools-track {
-    display: flex; gap: 48px; animation: scroll 20s linear infinite;
-    width: max-content;
-  }
-  @keyframes scroll { to { transform: translateX(-50%); } }
-  .tools-track span {
-    font-size: 1.1rem; font-weight: 600; color: var(--text2);
-    white-space: nowrap; transition: color 0.3s;
-  }
-  .tools-track span:hover { color: var(--accent2); }
+  .about-content h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 14px; }
+  .about-content p { color: var(--text2); margin-bottom: 14px; font-size: 0.88rem; }
 
   /* ── Contact ── */
   #contact {
-    text-align: center;
-    background: var(--surface); border-top: 1px solid var(--border);
+    text-align: left;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
   }
-  .contact-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 32px; }
-  .contact-card {
-    background: var(--surface2); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 20px 28px;
-    display: flex; align-items: center; gap: 12px;
-    text-decoration: none; color: var(--text);
-    transition: border-color 0.3s, transform 0.3s;
+  .contact-panel {
+    display: grid; grid-template-columns: 1fr;
+    gap: 22px; align-items: start;
+    padding: 18px 0 12px;
   }
-  .contact-card:hover { border-color: var(--accent); transform: translateY(-3px); }
-  .contact-card .c-icon {
-    width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
-    font-size: 1.2rem; background: var(--surface); border-radius: 50%;
+  #contact .section-subtitle { margin: 0; max-width: 620px; }
+  .contact-methods { display: flex; gap: 18px; flex-wrap: wrap; }
+  .contact-link {
+    display: inline-flex; align-items: center; gap: 10px;
+    color: var(--text); text-decoration: none;
+    font-size: 0.94rem; font-weight: 600;
+    transition: color 0.2s;
   }
+  .contact-link:hover { color: var(--accent-text); }
+  .contact-link img { width: 28px; height: 28px; display: block; }
 
   /* ── Footer ── */
   footer {
-    padding: 32px 24px; text-align: center; border-top: 1px solid var(--border);
-    font-size: 0.8rem; color: var(--text2);
+    padding: 28px 24px; text-align: center; border-top: 1px solid var(--border);
+    font-size: 0.72rem; color: var(--text2);
   }
 
   /* ── Responsive ── */
   @media (max-width: 768px) {
     .nav-links { display: none; }
-    .about-grid { grid-template-columns: 1fr; gap: 32px; }
-    .stats { gap: 28px; flex-wrap: wrap; }
-    .hero h1 { font-size: 2.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 28px; }
+    .stats { gap: 24px; flex-wrap: wrap; }
+    .hero h1 { font-size: 2.2rem; }
+    .hero { height: auto; min-height: auto; }
+    .hero .container { height: auto; min-height: 0; gap: 70px; padding: 42px 0 18px; }
+    .portfolio-mosaic { grid-template-columns: 1fr; }
+    .video-card.size-large,
+    .video-card.size-medium,
+    .video-card.size-small,
+    .video-card.size-xl { grid-column: auto; }
+    .contact-panel { grid-template-columns: 1fr; gap: 28px; }
+    .video-card.size-large,
+    .video-card.size-medium,
+    .video-card.size-small,
+    .video-card.size-xl { height: 390px; }
+    .testimonial-controls { justify-content: center; }
+    section { padding: 54px 20px; }
   }
 
-  /* ── Fade-in animation ── */
-  .reveal { opacity: 0; transform: translateY(30px); transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+  /* ── Fade-in ── */
+  .reveal { opacity: 0; transform: translateY(24px); transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 </style>
 </head>
@@ -300,11 +454,12 @@
 <!-- Navigation -->
 <nav>
   <div class="nav-inner">
-    <div class="logo">CY<span>.</span>edit</div>
     <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#skills">Habilidades</a></li>
+      <li><a href="#home">Início</a></li>
+      <li><a href="#portfolio">Portfólio</a></li>
+      <li><a href="#services">Serviços</a></li>
+      <li><a href="#skills">Ferramentas</a></li>
+      <li><a href="#testimonials">Relatos</a></li>
       <li><a href="#about">Sobre</a></li>
       <li><a href="#contact">Contato</a></li>
     </ul>
@@ -314,24 +469,22 @@
 <!-- Hero -->
 <section class="hero" id="home">
   <div class="container">
-    <div class="hero-tag">
-      <div class="dot"></div>
-      <span>Disponivel para projetos</span>
-    </div>
-    <h1>Transformo ideias em <em>videos que impactam</em></h1>
-    <p>Sou editor de video com paixao por contar historias atraves de cortes precisos, ritmo envolvente e narrativas visuais marcantes.</p>
-    <div class="hero-buttons">
-      <a href="#portfolio" class="btn btn-primary">Ver Portfolio</a>
-      <a href="#contact" class="btn btn-outline">Falar Comigo</a>
+    <div class="hero-main">
+      <h1>Transformo ideias em <em>vídeos.</em></h1>
+      <p>Edição com precisão, ritmo e narrativa. Cada corte tem propósito, cada frame tem peso.</p>
+      <div class="hero-buttons">
+        <a href="#portfolio" class="btn btn-primary">Ver Portfólio</a>
+        <a href="#contact" class="btn btn-outline">Contato</a>
+      </div>
     </div>
     <div class="stats">
       <div class="stat">
         <div class="stat-num">300+</div>
-        <div class="stat-label">Videos Editados</div>
+        <div class="stat-label">Vídeos</div>
       </div>
       <div class="stat">
         <div class="stat-num">5M+</div>
-        <div class="stat-label">Visualizacoes</div>
+        <div class="stat-label">Visualizações</div>
       </div>
       <div class="stat">
         <div class="stat-num">50+</div>
@@ -344,92 +497,42 @@
 <!-- Portfolio -->
 <section id="portfolio">
   <div class="container">
-    <span class="section-label">Portfolio</span>
-    <h2 class="section-title">Videos em Destaque</h2>
-    <p class="section-subtitle">Uma selecao dos meus trabalhos mais vistos e projetos que mais me orgulham.</p>
+    <span class="section-label">Portfólio</span>
+    <h2 class="section-title">Trabalhos Selecionados</h2>
+    <p class="section-subtitle">Trechos locais para mostrar ritmo e acabamento, com referência para assistir ao projeto completo quando existir.</p>
 
-    <div class="video-grid">
-      <!-- Video 1 -->
-      <div class="video-card reveal">
-        <div class="video-thumb" onclick="this.querySelector('.placeholder').style.display='none'; this.innerHTML='<iframe src=\'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1\' allow=\'autoplay; encrypted-media\' allowfullscreen></iframe>'">
-          <div class="placeholder">
-            <div class="play-icon"></div>
-            <span>Clique para reproduzir</span>
-          </div>
-        </div>
-        <div class="video-info">
-          <h3>Reel Comercial - Marca X</h3>
-          <p>Edicao dinamica para campanha publicitaria com foco em engajamento nas redes sociais.</p>
-          <div class="video-tags">
-            <span>Comercial</span><span>Premiere Pro</span><span>After Effects</span>
-          </div>
-        </div>
-      </div>
+    <div class="portfolio-mosaic" id="portfolioMosaic"></div>
 
-      <!-- Video 2 -->
-      <div class="video-card reveal">
-        <div class="video-thumb" onclick="this.querySelector('.placeholder').style.display='none'; this.innerHTML='<iframe src=\'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1\' allow=\'autoplay; encrypted-media\' allowfullscreen></iframe>'">
-          <div class="placeholder">
-            <div class="play-icon"></div>
-            <span>Clique para reproduzir</span>
-          </div>
-        </div>
-        <div class="video-info">
-          <h3>Vlog de Viagem - Aventura</h3>
-          <p>Edicao cinematografica de vlog com color grading personalizado e transicoes fluidas.</p>
-          <div class="video-tags">
-            <span>Vlog</span><span>DaVinci Resolve</span><span>Color Grading</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Video 3 -->
-      <div class="video-card reveal">
-        <div class="video-thumb" onclick="this.querySelector('.placeholder').style.display='none'; this.innerHTML='<iframe src=\'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1\' allow=\'autoplay; encrypted-media\' allowfullscreen></iframe>'">
-          <div class="placeholder">
-            <div class="play-icon"></div>
-            <span>Clique para reproduzir</span>
-          </div>
-        </div>
-        <div class="video-info">
-          <h3>Curta-Metragem - Sombras</h3>
-          <p>Montagem e pos-producao de curta-metragem independente com narrativa visual impactante.</p>
-          <div class="video-tags">
-            <span>Curta</span><span>Premiere Pro</span><span>Sound Design</span>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
-<!-- O Que Faco -->
-<section>
+<!-- Services -->
+<section id="services">
   <div class="container">
-    <span class="section-label">Servicos</span>
-    <h2 class="section-title">O Que Eu Faco</h2>
-    <p class="section-subtitle">Ofereco servicos completos de edicao e pos-producao para diferentes formatos e plataformas.</p>
+    <span class="section-label">Serviços</span>
+    <h2 class="section-title">O Que Eu Faço</h2>
+    <p class="section-subtitle">Serviços completos de edição e pós-produção para diferentes formatos e plataformas.</p>
 
     <div class="services-grid">
       <div class="service-card reveal">
-        <div class="icon">&#127916;</div>
-        <h3>Edicao de Videos</h3>
+        <div class="service-icon">&#127916;</div>
+        <h3>Edição de Vídeos</h3>
         <p>Cortes precisos, ritmo e narrativa para YouTube, Instagram, TikTok e outras plataformas.</p>
       </div>
       <div class="service-card reveal">
-        <div class="icon">&#127912;</div>
+        <div class="service-icon">&#127912;</div>
         <h3>Color Grading</h3>
-        <p>Correcao e estilizacao de cores para criar atmosferas unicas e identidade visual consistente.</p>
+        <p>Correção e estilização de cores para criar atmosfera, unidade visual e acabamento profissional.</p>
       </div>
       <div class="service-card reveal">
-        <div class="icon">&#128266;</div>
+        <div class="service-icon">&#128266;</div>
         <h3>Sound Design</h3>
-        <p>Mixagem, efeitos sonoros e trilha para elevar o impacto emocional dos seus videos.</p>
+        <p>Tratamento de áudio, efeitos sonoros, mixagem e ritmo sonoro para dar mais impacto ao vídeo.</p>
       </div>
       <div class="service-card reveal">
-        <div class="icon">&#128253;</div>
+        <div class="service-icon">&#128253;</div>
         <h3>Motion Graphics</h3>
-        <p>Animacoes, titulos e elementos graficos para dar vida e profissionalismo ao seu conteudo.</p>
+        <p>Animações, títulos, chamadas e elementos gráficos feitos no fluxo do DaVinci Resolve/Fusion.</p>
       </div>
     </div>
   </div>
@@ -438,82 +541,190 @@
 <!-- Skills -->
 <section id="skills" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
   <div class="container">
-    <span class="section-label">Skills</span>
-    <h2 class="section-title">Habilidades & Ferramentas</h2>
-    <p class="section-subtitle">Softwares e competencias que domino para entregar resultados de alta qualidade.</p>
+    <span class="section-label">Ferramentas</span>
+    <h2 class="section-title">Ferramentas & Especialidades</h2>
+    <p class="section-subtitle">Meu fluxo de trabalho se concentra em DaVinci Resolve e Photoshop, cobrindo edição, cor, áudio, efeitos, finalização e recursos visuais.</p>
 
     <div class="skills-grid">
       <div class="skill-card reveal">
-        <div class="skill-icon">&#127916;</div>
-        <h3>Adobe Premiere Pro</h3>
-        <p>Edicao profissional com workflows otimizados, multicam e proxies para projetos complexos.</p>
+        <div class="skill-head">
+          <div class="tool-logo">
+            <img src="assets/icons/davinci-resolve.svg" alt="DaVinci Resolve">
+          </div>
+          <h3>DaVinci Resolve</h3>
+        </div>
+        <p>Edição, montagem, color grading, finalização, Fusion para composição/motion e Fairlight para áudio dentro do mesmo projeto.</p>
       </div>
       <div class="skill-card reveal">
-        <div class="skill-icon">&#128309;</div>
-        <h3>After Effects</h3>
-        <p>Animacao, composicao e efeitos visuais para motion graphics e pos-producao.</p>
-      </div>
-      <div class="skill-card reveal">
-        <div class="skill-icon">&#127754;</div>
-        <h3>DaVinci Resolve</h3>
-        <p>Color grading avancado com nodes, LUTs personalizadas e correcao precisa de cor.</p>
-      </div>
-      <div class="skill-card reveal">
-        <div class="skill-icon">&#127925;</div>
-        <h3>Audition / Fairlight</h3>
-        <p>Edicao e mixagem de audio, reducao de ruido e mastering para som profissional.</p>
-      </div>
-      <div class="skill-card reveal">
-        <div class="skill-icon">&#127911;</div>
-        <h3>Photoshop / Illustrator</h3>
-        <p>Criacao de thumbnails, overlays e assets graficos que complementam a edicao.</p>
-      </div>
-      <div class="skill-card reveal">
-        <div class="skill-icon">&#127760;</div>
-        <h3>Blender (3D Basico)</h3>
-        <p>Modelagem e renderizacao basica para cenas 3D integradas em projetos de video.</p>
+        <div class="skill-head">
+          <div class="tool-logo">
+            <img src="assets/icons/photoshop.svg" alt="Photoshop">
+          </div>
+          <h3>Photoshop</h3>
+        </div>
+        <p>Thumbnails, recortes, overlays, composições e artes de apoio preparadas para os vídeos.</p>
       </div>
     </div>
 
     <!-- Tools marquee -->
-    <div class="tools-marquee">
+    <div class="tools-marquee" aria-label="Ferramentas principais">
       <div class="tools-track">
-        <span>Premiere Pro</span>
-        <span>&middot;</span>
-        <span>After Effects</span>
-        <span>&middot;</span>
         <span>DaVinci Resolve</span>
-        <span>&middot;</span>
-        <span>Final Cut Pro</span>
-        <span>&middot;</span>
-        <span>Audition</span>
-        <span>&middot;</span>
+        <span>Fusion</span>
+        <span>Fairlight</span>
+        <span>Color Page</span>
         <span>Photoshop</span>
-        <span>&middot;</span>
-        <span>Illustrator</span>
-        <span>&middot;</span>
-        <span>Blender</span>
-        <span>&middot;</span>
-        <span>CapCut</span>
-        <span>&middot;</span>
-        <span>Premiere Pro</span>
-        <span>&middot;</span>
-        <span>After Effects</span>
-        <span>&middot;</span>
+        <span>Thumbnails</span>
+        <span>Overlays</span>
+          <span>Recursos Visuais</span>
         <span>DaVinci Resolve</span>
-        <span>&middot;</span>
-        <span>Final Cut Pro</span>
-        <span>&middot;</span>
-        <span>Audition</span>
-        <span>&middot;</span>
+        <span>Fusion</span>
+        <span>Fairlight</span>
+        <span>Color Page</span>
         <span>Photoshop</span>
-        <span>&middot;</span>
-        <span>Illustrator</span>
-        <span>&middot;</span>
-        <span>Blender</span>
-        <span>&middot;</span>
-        <span>CapCut</span>
+        <span>Thumbnails</span>
+        <span>Overlays</span>
+          <span>Recursos Visuais</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section id="testimonials">
+  <div class="container">
+    <span class="section-label">Relatos</span>
+    <h2 class="section-title">O Que Meus Clientes Dizem</h2>
+    <p class="section-subtitle">Feedback de quem confiou no meu trabalho.</p>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="quote">
+          Entregou além do esperado. Edição limpa, ritmo perfeito e atenção aos detalhes que fazem toda diferença. Virou meu editor fixo.
+        </div>
+        <div class="author">
+          <div class="author-avatar">FY</div>
+          <div class="author-info">
+            <div class="name">Fyori</div>
+            <div class="role">Criador de Conteúdo</div>
+          </div>
+          <a href="https://www.youtube.com/@Fyori/videos" target="_blank" rel="noopener" class="author-link" aria-label="Ir para o canal do Fyori">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 17 17 7"></path>
+              <path d="M9 7h8v8"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <div class="quote">
+          Profissionalismo do início ao fim. Entendeu exatamente o que eu queria e trouxe soluções criativas que eu nem tinha pensado.
+        </div>
+        <div class="author">
+          <div class="author-avatar">AF</div>
+          <div class="author-info">
+            <div class="name">Ana Ferreira</div>
+            <div class="role">Produtora - Ag. Vox</div>
+          </div>
+          <a href="#" class="author-link" aria-label="Ir para perfil de Ana Ferreira">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 17 17 7"></path>
+              <path d="M9 7h8v8"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <div class="quote">
+          O color grading que ele fez no meu curta transformou completamente a atmosfera. Trabalho de cinema, sério.
+        </div>
+        <div class="author">
+          <div class="author-avatar">RC</div>
+          <div class="author-info">
+            <div class="name">Rafael Costa</div>
+            <div class="role">Diretor Independente</div>
+          </div>
+          <a href="#" class="author-link" aria-label="Ir para perfil de Rafael Costa">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 17 17 7"></path>
+              <path d="M9 7h8v8"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <div class="quote">
+          O vídeo ficou com ritmo muito mais forte do que eu imaginava. A edição deixou tudo direto, bonito e fácil de assistir.
+        </div>
+        <div class="author">
+          <div class="author-avatar">MS</div>
+          <div class="author-info">
+            <div class="name">Marina Souza</div>
+            <div class="role">Criadora de Conteúdo</div>
+          </div>
+          <a href="#" class="author-link" aria-label="Ir para perfil de Marina Souza">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 17 17 7"></path>
+              <path d="M9 7h8v8"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <div class="quote">
+          Pegou um material simples e transformou em uma entrega com cara profissional. Organização, prazo e acabamento impecáveis.
+        </div>
+        <div class="author">
+          <div class="author-avatar">BT</div>
+          <div class="author-info">
+            <div class="name">Bruno Tavares</div>
+            <div class="role">Canal de Tecnologia</div>
+          </div>
+          <a href="#" class="author-link" aria-label="Ir para perfil de Bruno Tavares">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 17 17 7"></path>
+              <path d="M9 7h8v8"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <div class="quote">
+          A thumbnail, os cortes e a finalização ficaram muito coesos. Foi o tipo de edição que melhora a percepção do canal.
+        </div>
+        <div class="author">
+          <div class="author-avatar">JP</div>
+          <div class="author-info">
+            <div class="name">Júlia Prado</div>
+            <div class="role">Produtora Digital</div>
+          </div>
+          <a href="#" class="author-link" aria-label="Ir para perfil de Júlia Prado">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 17 17 7"></path>
+              <path d="M9 7h8v8"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-controls" aria-label="Navegação dos relatos">
+      <button class="testimonial-nav" id="testimonialPrev" type="button" aria-label="Relatos anteriores">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M15 18 9 12l6-6"></path>
+        </svg>
+      </button>
+      <span class="testimonial-page" id="testimonialPage">1 / 1</span>
+      <button class="testimonial-nav" id="testimonialNext" type="button" aria-label="Próximos relatos">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="m9 18 6-6-6-6"></path>
+        </svg>
+      </button>
     </div>
   </div>
 </section>
@@ -524,30 +735,29 @@
     <span class="section-label">Sobre Mim</span>
     <div class="about-grid">
       <div class="about-image reveal">
+        <img src="assets/images/about-photo.jpg" alt="Foto de Carlos Yoot" onload="this.nextElementSibling.style.display='none'" onerror="this.style.display='none'">
         <div class="img-text">
           <div class="avatar">CY</div>
-          <span style="color:var(--text2);font-size:0.85rem">Video Editor</span>
+          <span style="color:var(--text2);font-size:0.8rem;text-transform:uppercase;letter-spacing:0.06em;">Substitua por assets/images/about-photo.jpg</span>
         </div>
       </div>
       <div class="about-content reveal">
         <h3>Prazer, sou o Carlos Yoot</h3>
         <p>
-          Editor de video ha mais de 5 anos, apaixonado por transformar raw footage em historias
-          que prendem a atencao do primeiro ao ultimo segundo. Comecei editando videos para o YouTube
-          e hoje trabalho com marcas, criadores de conteudo e produtoras.
+          Editor de vídeo há mais de 5 anos. Comecei editando conteúdo digital e hoje trabalho com marcas,
+          criadores de conteúdo e produtoras &mdash; sempre com um olhar afiado para o que
+          prende a atenção e gera impacto.
         </p>
         <p>
-          Meu processo criativo combina tecnica apurada com sensibilidade narrativa &mdash; cada corte
-          tem um proposito, cada transicao conta uma historia. Acredito que um bom video nao se assiste,
-          se sente.
+          Meu processo é direto: técnica sólida, storytelling afiado e zero gordura. Cada corte
+          tem propósito. Cada frame é intencional. Não edito vídeos &mdash; construo experiências.
         </p>
         <p>
-          Quando nao estou editando, estou estudando novas tecnicas, consumindo referencia de cinema
-          ou experimentando com ferramentas de IA para acelerar e enriquecer meus workflows.
+          Fora do software, estou sempre estudando referências de cinema, fotografia e experimentando
+          com IA para acelerar fluxos de trabalho sem perder qualidade.
         </p>
-        <div class="about-links">
-          <a href="#" class="btn btn-outline">Download CV</a>
-          <a href="#contact" class="btn btn-primary">Vamos Trabalhar Juntos?</a>
+        <div class="hero-buttons" style="margin-top:24px;">
+          <a href="#contact" class="btn btn-primary">Vamos Trabalhar Juntos</a>
         </div>
       </div>
     </div>
@@ -557,31 +767,23 @@
 <!-- Contact -->
 <section id="contact">
   <div class="container">
-    <span class="section-label">Contato</span>
-    <h2 class="section-title">Vamos Conversar?</h2>
-    <p class="section-subtitle" style="margin:0 auto 0 auto">Tem um projeto em mente? Entre em contato e vamos transformar sua ideia em realidade.</p>
-    <div class="contact-links">
-      <a href="mailto:seu@email.com" class="contact-card">
-        <div class="c-icon">&#9993;</div>
-        <div>
-          <div style="font-size:0.8rem;color:var(--text2)">Email</div>
-          <div style="font-weight:600">seu@email.com</div>
-        </div>
-      </a>
-      <a href="https://instagram.com/seuuser" target="_blank" rel="noopener" class="contact-card">
-        <div class="c-icon">&#128247;</div>
-        <div>
-          <div style="font-size:0.8rem;color:var(--text2)">Instagram</div>
-          <div style="font-weight:600">@seuuser</div>
-        </div>
-      </a>
-      <a href="https://youtube.com/@seucanal" target="_blank" rel="noopener" class="contact-card">
-        <div class="c-icon">&#9654;</div>
-        <div>
-          <div style="font-size:0.8rem;color:var(--text2)">YouTube</div>
-          <div style="font-weight:600">@seucanal</div>
-        </div>
-      </a>
+    <div class="contact-panel">
+      <div class="contact-copy">
+        <span class="section-label">Contato</span>
+        <h2 class="section-title">Vamos editar algo bom?</h2>
+        <p class="section-subtitle">Me envie o material, o objetivo do vídeo e o prazo. Eu retorno com disponibilidade, direção criativa e próximos passos.</p>
+      </div>
+
+      <div class="contact-methods">
+        <a href="mailto:carlosdanielyoot@gmail.com" class="contact-link">
+          <img src="assets/icons/mail.svg" alt="">
+          <span>carlosdanielyoot@gmail.com</span>
+        </a>
+        <a href="https://www.youtube.com/@CarlosDaniel-cy2wj" target="_blank" rel="noopener" class="contact-link">
+          <img src="assets/icons/youtube.svg" alt="">
+          <span>@CarlosDaniel-cy2wj</span>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -590,18 +792,7 @@
   <p>&copy; 2026 Carlos Yoot. Todos os direitos reservados.</p>
 </footer>
 
-<script>
-  // Scroll reveal animation
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.15 });
-
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>

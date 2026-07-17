@@ -1,0 +1,5 @@
+Substitua este arquivo por:
+videos/video-001.mp4
+
+Uso no site:
+Trecho principal do mosaico - Edicao Dinamica - Reel.
